@@ -1,0 +1,92 @@
+{
+    "model_settings": {
+        "llm_model": "qwen2.5:0.5b-instruct",
+        "embedding_model": "nomic-embed-text",
+        "temperature": 0.1,
+        "max_tokens": 512
+    },
+    "processing_settings": {
+        "max_workers": 4,
+        "enable_parallel_processing": true,
+        "supported_file_extensions": [".pdf"]
+    },
+    "output_settings": {
+        "max_sections": 5,
+        "max_subsections": 5,
+        "output_format": "challenge1b"
+    },
+    "relevance_scorer_settings": {
+        "max_items_to_evaluate": 30,
+        "target_selections": 5,
+        "score_step": 5,
+        "content_preview_length": 200,
+        "dedup_title_prefix_chars": 50,
+        "dedup_content_chars": 150,
+        "dedup_content_start_chars": 80,
+        "min_meaningful_content_chars": 30,
+        "section_content_preview_chars": 400,
+        "subsection_content_preview_chars": 500,
+        "batch_top_selections": 3,
+        "max_balanced_candidates": 60,
+        "max_final_candidates": 30,
+        "max_relevance_score": 100.0,
+        "content_dedup_chars": 100
+    },
+    "content_extraction_settings": {
+        "max_content_lines": 300,
+        "max_content_chars": 500,
+        "content_context_lines": 5,
+        "max_subsections_per_doc": 60,
+        "top_subsections_per_doc": 40,
+        "min_meaningful_content_length": 60,
+        "heading_length_min": 3,
+        "heading_length_max": 100,
+        "content_preview_chars": 300
+    },
+    "section_extraction_settings": {
+        "max_processing_lines": 150,
+        "content_preview_lines": 5,
+        "section_preview_chars": 300
+    },
+    "keyword_mapping": {
+        "dynamic_extraction": {
+            "enable_nlp_extraction": true,
+            "min_keyword_frequency": 2,
+            "max_keywords_per_pattern": 10,
+            "keyword_similarity_threshold": 0.7,
+            "extract_from_content": true,
+            "extract_from_titles": true
+        },
+        "algorithmic_patterns": {
+            "verb_indicators": ["ing", "ed", "en", "er"],
+            "noun_indicators": ["tion", "sion", "ness", "ment", "ity"],
+            "quality_suffixes": ["ful", "able", "ive", "ant", "ent"],
+            "action_prefixes": ["pre", "re", "un", "de", "ex"],
+            "common_connectors": ["of", "in", "on", "at", "by", "for", "with"],
+            "punctuation_markers": [":", ".", "!", "?", "-", "*", "•"],
+            "numeric_patterns": ["\\d+\\.", "\\d+\\)", "[a-zA-Z]\\.", "[a-zA-Z]\\)"]
+        },
+        "content_analysis": {
+            "extract_keywords_from_documents": true,
+            "analyze_sentence_structure": true,
+            "identify_domain_terms": true,
+            "build_context_vocabulary": true,
+            "adaptive_scoring": true
+        },
+        "filtering_rules": {
+            "min_word_length": 3,
+            "max_word_length": 20,
+            "exclude_single_chars": true,
+            "exclude_numbers_only": true,
+            "exclude_common_articles": true,
+            "context_window_size": 5
+        },
+        "list_markers": ["1.", "2.", "3.", "4.", "5.", "•", "-", "*", "➤"],
+        "exclude_prefixes": ["Note:", "Tip:", "Warning:", "Caution:", "Alert:"],
+        "sentence_endings": [".", "!", "?", ",", ";"],
+        "stop_words": ["the", "and", "for", "with", "from", "that", "this", "are", "is", "was", "were"],
+        "min_word_length": 3,
+        "max_heading_words": 10,
+        "max_heading_line_length": 80
+    }
+}
